@@ -1,7 +1,7 @@
 .xlist
 option casemap :none
-include C:\RadASM\Masm\Projects\iotest\masm32rt.inc
-includelib C:\RadASM\Masm\Projects\iotest\iolib.lib
+include \masm32\include\masm32rt.inc
+includelib \masm32\lib\iolib.lib
 
 _outstr PROTO
 _outint	PROTO 
