@@ -43,7 +43,7 @@ print	macro	Name:VARARG
 	IFDIF <Name>,<NULL>
 		IFNB <Name>
 			quot SUBSTR <Name>,1,1	
-			IFIDN quot,<">
+			IFIDN quot,<"> ;"
 				printc Name
 			ELSE	
 				same Name,<al,AL,Al,aL,ah,AH,Ah,aH,bl,BL,Bl,bL,bh,BH,Bh,bH,cl,CL,Cl,cL,ch,CH,Ch,cH,dl,DL,Dl,dL,dh,DH,Dh,dH>, reg?
