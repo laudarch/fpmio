@@ -177,13 +177,9 @@ endm
 ;============================ NUMBER MACRO ============================
 ;======================================================================
 
+	; OUTINT
 outint macro Name
-    LOCAL reg?
-    same	<Name>,<eax,eaX,eAx,eAX,Eax,EaX,EAx,EAX,ebx,ebX,eBx,eBX,Ebx,EbX,EBx,EBX,ecx,ecX,eCx,eCX,Ecx,EcX,ECx,ECX,edx,edX,eDx,eDX,Edx,EdX,EDx,EDX>,reg?
-    IF reg?
-        outint32 Name
-    ELSE
-    IFE TYPE Name - 4
+    IF issize(Name, 4)
         outint32 Name
     ELSE
         push eax
@@ -191,33 +187,17 @@ outint macro Name
         outint32 eax
         pop eax
     ENDIF
-    ENDIF
 endm
 
+	; ININT
 inint macro Name
-    LOCAL reg?
-    same	<Name>,<al,aL,Al,AL,ah,aH,Ah,AH,bl,bL,Bl,BL,bh,bH,Bh,BH,cl,cL,Cl,CL,ch,cH,Ch,CH,dl,dL,Dl,DL,dh,dH,Dh,DH>,reg?
-    IF reg?
+    IF issize(Name, 1)
         inint8 Name
     ELSE
-    same	<Name>,<ax,aX,Ax,AX,bx,bX,Bx,BX,cx,cX,Cx,CX,dx,dX,Dx,DX>,reg?
-    IF reg?
+    IF issize(Name, 2)
         inint16 Name
     ELSE
-    same	<Name>,<eax,eaX,eAx,eAX,Eax,EaX,EAx,EAX,ebx,ebX,eBx,eBX,Ebx,EbX,EBx,EBX,ecx,ecX,eCx,eCX,Ecx,EcX,ECx,ECX,edx,edX,eDx,eDX,Edx,EdX,EDx,EDX>,reg?
-    IF reg?
         inint32 Name
-    ELSE
-    IFE TYPE Name - 1
-        inint8 Name
-    ELSE
-    IFE TYPE Name - 2
-        inint16 Name
-    ELSE   
-        inint32 Name
-    ENDIF
-    ENDIF 
-    ENDIF
     ENDIF
     ENDIF
 endm
@@ -277,7 +257,7 @@ inint32 macro	x
 	ENDIF
 endm
 
-	; ININT 32 BIT
+	; ININT 16 BIT
 inint16 macro	x
 	LOCAL	regeax?
 	same	<x>,<ax,AX,Ax,aX>,regeax?
@@ -297,7 +277,7 @@ inint16 macro	x
 	ENDIF
 endm
 
-	; ININT 32 BIT
+	; ININT 8 BIT
 inint8	macro	x
 	LOCAL	regax?
 	same	<x>,<ah,AH,Ah,aH>,regax?
