@@ -76,7 +76,6 @@ println macro Name
 endm
 
 	; READ
-
 read macro Name
     LOCAL bool
     same <Name>,<al,AL,Al,aL>, bool
@@ -145,27 +144,6 @@ read macro Name
      
     print Name
 endm
-comment *
-read macro Name
-	LOCAL	regax?
-	same	<Name>,<ah,AH,Ah,aH>,regax?
-	IF	regax?
-		XCHG	AH,AL
-		getkey
-		XCHG	AH,AL
-	ELSE
-		same	<Name>,<al,AL,Al,aL>,regax?
-		IF	regax?
-			getkey
-		ELSE
-			PUSH	AX
-			getkey
-			MOV	Name,AL
-			POP	AX
-		ENDIF
-	ENDIF
-	print Name
-endm*
 
 	; READ LINE
 readln macro Name, text
