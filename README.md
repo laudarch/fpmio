@@ -27,7 +27,7 @@ include /masm32/include/io.asm      ; Включаем библиотеку вв
 
 .code                               ; Сегмент кода
 start:
-    print offset msgHello          ; Выводим сообщение
+    print msgHello                  ; Выводим сообщение
     print                           ; Ждем нажатия любой клавиши
     exit                            ; Завершаем работу программы
 end start                           ; Объявлвем точку входа в программу
