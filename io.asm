@@ -1,3 +1,18 @@
+; This file is update for io.asm library included in the package IDE 
+; RadASM for KubSU students. Main page of project 
+; https://github.com/KubSU/SIOMASM/
+;
+; THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+; EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+; MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+; For details see the MIT license.
+
+;**********************************************************************
+; LIBRARY NAME : IO
+; DESCRIPTION  : Simple Input-Output library for MASM.
+; AUTHOR       : Zyryanov Maxim
+;**********************************************************************
+
 .xlist
 option casemap :none
 include \masm32\include\masm32rt.inc
