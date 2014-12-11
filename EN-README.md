@@ -29,7 +29,7 @@ include /masm32/include/io.asm      ; Includes a library of input-output
 
 .code; code segment
 start:
-     print offset msgHello          ; Displays a message
+     print msgHello                 ; Displays a message
      print                          ; Looking forward to pressing any key
      exit                           ; Terminate the program
 end start                           ; Definition of point of entry into the program
